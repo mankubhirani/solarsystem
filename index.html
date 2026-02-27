@@ -496,7 +496,58 @@
       '📏 1 Astronomical Unit (AU) = Earth-Sun distance ≈ 150 million km - our cosmic measuring stick.',
       '🚀 Escape velocity from Earth is 11.2 km/s - that\'s 40,320 km/h!',
       '⏱️ Mars takes 687 Earth days to orbit the Sun - almost 2 Earth years.',
-      '🌊 Tidal forces from the Moon are gradually slowing Earth\'s rotation.'
+      '🌊 Tidal forces from the Moon are gradually slowing Earth\'s rotation.',
+      '☀️ The Sun\'s mass is 2 nonillion kilograms - that\'s 2 followed by 30 zeros!',
+      '🔥 Solar flares can release energy equivalent to millions of nuclear bombs.',
+      '🌡️ The Sun\'s corona is paradoxically hotter than its surface - reaching millions of degrees.',
+      '💫 Mercury orbits the Sun 4 times while Jupiter orbits just once.',
+      '🌀 Venus\'s atmosphere is 92 times denser than Earth\'s - like being 900 meters deep underwater.',
+      '💨 Venus\'s wind speeds at the top of clouds reach 360 km/h despite slow surface winds.',
+      '🧊 Earth\'s core is about as hot as the Sun\'s surface - around 5,500°C.',
+      '💧 97% of Earth\'s water is in the oceans; only 3% is freshwater.',
+      '❄️ The coldest place in the solar system is a crater on Mercury\'s north pole at -180°C.',
+      '🔴 Mars has a thin atmosphere composed mainly of carbon dioxide.',
+      '🗻 Olympus Mons on Mars is 21 km high and 600 km wide - three times taller than Mount Everest!',
+      '💔 Mars once had a magnetic field but lost it billions of years ago.',
+      '⚪ Jupiter\'s Great Red Spot is shrinking - it\'s been getting smaller for at least 150 years.',
+      '🌊 Jupiter\'s four Galilean moons are named: Io, Europa, Ganymede, and Callisto.',
+      '⛓️ Jupiter\'s rings are much fainter than Saturn\'s but they do exist.',
+      '❄️ Europa, one of Jupiter\'s moons, may have a subsurface ocean beneath its icy crust.',
+      '🔥 Io is the most volcanically active body in the solar system.',
+      '💍 Saturn\'s rings are only about 1 km thick despite being 282,000 km across.',
+      '🎂 Saturn\'s ring particles range from grains of sand to house-sized boulders.',
+      '🌊 Saturn\'s moon Titan has methane lakes and seas - the only moon with stable surface liquids.',
+      '🧬 Enceladus, another Saturn moon, shoots water plumes from its south pole.',
+      '🔵 Uranus rotates on its side at 98 degrees inclination - likely from a massive ancient collision.',
+      '🎨 Uranus appears as a featureless blue-green ball - one of the most boring-looking planets.',
+      '❄️ The extreme cold at Uranus causes methane in the atmosphere to condense into clouds.',
+      '🌬️ Neptune was discovered in 1846 through mathematical predictions before telescopic observation.',
+      '💨 Neptune has the fastest winds in the solar system reaching 2,100 km/h.',
+      '🌀 Neptune has a dark storm system similar to Jupiter\'s Great Red Spot.',
+      '🏔️ Pluto, once the 9th planet, is smaller than Earth\'s Moon.',
+      '🪨 The asteroid belt between Mars and Jupiter contains millions of rocky bodies.',
+      '☄️ Comets are \"dirty snowballs\" made of ice, rock, and dust from the outer solar system.',
+      '🌠 Meteors are space rocks burning up in Earth\'s atmosphere - we call them \"shooting stars.\"',
+      '🧲 Earth\'s magnetic field protects us from harmful solar radiation.',
+      '🛰️ The first artificial satellite, Sputnik 1, launched in 1957.',
+      '🌌 The Kuiper Belt beyond Neptune contains icy bodies and dwarf planets.',
+      '☄️ Oort Cloud is a theoretical spherical cloud of icy bodies surrounding our solar system.',
+      '🔬 We\'ve visited all 8 major planets with robotic probes.',
+      '🚀 The fastest spacecraft ever sent is the Parker Solar Probe at 430 km/s.',
+      '🛸 Voyager 1 is the farthest human-made object, over 24 billion km from Earth.',
+      '📡 Voyager 1 carries a golden record with sounds and images from Earth.',
+      '👨‍🚀 Only 12 humans have walked on the Moon - all Apollo missions between 1969-1972.',
+      '🌙 The Moon is gradually moving away from Earth - about 3.8 cm per year.',
+      '🌑 A solar eclipse only happens during a new moon when the Moon blocks the Sun.',
+      '🌕 A lunar eclipse happens during a full moon when Earth blocks sunlight from reaching the Moon.',
+      '📊 The solar system is about 4.6 billion years old - roughly one-third the age of the universe.',
+      '⭐ In about 5 billion years, the Sun will expand into a red giant and engulf Mercury and Venus.',
+      '🌍 Earth will become uninhabitable in about 1-2 billion years as the Sun gets hotter.',
+      '💥 Black holes form when massive stars collapse at the end of their lives.',
+      '✨ Neutron stars are so dense that a teaspoon of their material would weigh 6 billion tons.',
+      '🌈 The Sun uses nuclear fusion to convert hydrogen into helium, releasing massive energy.',
+      '🔭 The Hubble Space Telescope can see galaxies billions of light-years away.',
+      '🪐 Saturns Titan is the only moon with a thick atmosphere in our solar system.'
     ];
     
     // State
@@ -779,18 +830,23 @@
       
       // Update measurements if enabled
       if (state.showMeasurements) {
-        updateMeasurements(centerX, centerY, earthX, earthY, moonX, moonY, marsX, marsY, jupiterX, jupiterY);
+        updateMeasurements(centerX, centerY, mercuryX, mercuryY, venusX, venusY, earthX, earthY, moonX, moonY, marsX, marsY, jupiterX, jupiterY, saturnX, saturnY, uranusX, uranusY, neptuneX, neptuneY);
       }
     }
     
-    function updateMeasurements(sunX, sunY, earthX, earthY, moonX, moonY, marsX, marsY, jupiterX, jupiterY) {
+    function updateMeasurements(sunX, sunY, mercuryX, mercuryY, venusX, venusY, earthX, earthY, moonX, moonY, marsX, marsY, jupiterX, jupiterY, saturnX, saturnY, uranusX, uranusY, neptuneX, neptuneY) {
       distanceLines.innerHTML = '';
       
       const measurements = [
+        { x1: sunX, y1: sunY, x2: mercuryX, y2: mercuryY, label: '0.39 AU (57.9M km)' },
+        { x1: sunX, y1: sunY, x2: venusX, y2: venusY, label: '0.72 AU (108.2M km)' },
         { x1: sunX, y1: sunY, x2: earthX, y2: earthY, label: '1 AU (149.6M km)' },
         { x1: earthX, y1: earthY, x2: moonX, y2: moonY, label: '384,400 km' },
         { x1: sunX, y1: sunY, x2: marsX, y2: marsY, label: '1.52 AU (227.9M km)' },
-        { x1: sunX, y1: sunY, x2: jupiterX, y2: jupiterY, label: '5.2 AU (778.5M km)' }
+        { x1: sunX, y1: sunY, x2: jupiterX, y2: jupiterY, label: '5.2 AU (778.5M km)' },
+        { x1: sunX, y1: sunY, x2: saturnX, y2: saturnY, label: '9.5 AU (1.4B km)' },
+        { x1: sunX, y1: sunY, x2: uranusX, y2: uranusY, label: '19.2 AU (2.9B km)' },
+        { x1: sunX, y1: sunY, x2: neptuneX, y2: neptuneY, label: '30 AU (4.5B km)' }
       ];
       
       measurements.forEach(m => {
